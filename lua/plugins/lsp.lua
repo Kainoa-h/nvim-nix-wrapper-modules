@@ -54,7 +54,6 @@ return {
 						vim.lsp.buf.format()
 					end, { desc = "Format current buffer with LSP" })
 
-					nmap("<leader>cf", "<cmd>Format<cr>", "Format buffer with LSP")
 				end,
 			})
 		end,
