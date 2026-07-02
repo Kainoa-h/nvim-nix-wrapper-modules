@@ -25,7 +25,12 @@ return {
 					},
 				},
 				git = {},
-				terminal = {},
+				terminal = {
+					win = {
+						width = 0.9,
+						height = 0.7,
+					},
+				},
 				scope = {},
 				indent = {
 					scope = {
@@ -52,6 +57,10 @@ return {
 				-- make sure lazygit always reopens the correct program
 				-- hopefully this can be removed one day
 				lazygit = {
+					win = {
+						width = 0.9,
+						height = 0.9,
+					},
 					config = {
 						os = {
 							editPreset = "nvim-remote",
@@ -111,8 +120,8 @@ return {
 			vim.keymap.set("n", "<leader>e", function()
 				Snacks.explorer.open()
 			end, { desc = "Snacks file explorer" })
-			vim.keymap.set("n", "<c-/>", function()
-				Snacks.terminal.open()
+			vim.keymap.set({ "n", "t" }, "<c-/>", function()
+				Snacks.terminal.toggle()
 			end, { desc = "Snacks Terminal" })
 			vim.keymap.set("n", "<leader>gg", function()
 				Snacks.lazygit.open()
