@@ -126,10 +126,6 @@ return {
 					},
 					lualine_x = { "filetype" },
 				},
-				tabline = {
-					lualine_a = { "buffers" },
-					lualine_z = { "tabs" },
-				},
 				extensions = { "neo-tree", "lazy", "fzf" },
 			})
 		end,

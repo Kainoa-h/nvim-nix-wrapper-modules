@@ -10,6 +10,7 @@ return {
 	{ import = "plugins.noice" },
 	{ import = "plugins.gitsigns" },
 	{ import = "plugins.flash" },
+	{ import = "plugins.bufferline" },
 	{
 		"colorful-menu.nvim",
 		auto_enable = true,

@@ -244,6 +244,7 @@ inputs:
       nvim-web-devicons
       flash-nvim
       mini-files
+      bufferline-nvim
     ];
   };
 
