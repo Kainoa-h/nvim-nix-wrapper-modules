@@ -2,7 +2,7 @@
 
 Neovim derivation built on top of [nix-wrapper-modules](https://github.com/BirdeeHub/nix-wrapper-modules).
 
-Originally templated from the [neovim example](https://github.com/BirdeeHub/nix-wrapper-modules#neovim)
+Originally templated from the [neovim example](https://github.com/BirdeeHub/nix-wrapper-modules/tree/main/templates/neovim)
 
 ```bash
 nix build .
