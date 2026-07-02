@@ -110,6 +110,89 @@ inputs:
     ];
   };
 
+  config.specs.rust = {
+    data = with pkgs.vimPlugins; [
+      crates-nvim
+    ];
+    runtimePkgs = with pkgs; [
+      rust-analyzer
+      clippy
+    ];
+  };
+
+  config.specs.typescript = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      vtsls
+    ];
+  };
+
+  config.specs.javascript = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      vtsls
+    ];
+  };
+
+  config.specs.html = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      vscode-langservers-extracted
+    ];
+  };
+  config.specs.css = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      vscode-langservers-extracted
+    ];
+  };
+  config.specs.csharp = {
+    data = with pkgs.vimPlugins; [
+      nvim-dap
+    ];
+    runtimePkgs = with pkgs; [
+      roslyn-ls
+    ];
+  };
+  config.specs.java = {
+    data = with pkgs.vimPlugins; [
+      nvim-jdtls
+    ];
+    runtimePkgs = with pkgs; [
+      jdt-language-server
+    ];
+  };
+  config.specs.angular = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      angular-language-server
+    ];
+  };
+  config.specs.react = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      emmet-ls
+    ];
+  };
+  config.specs.vue = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      vue-language-server
+    ];
+  };
+  config.specs.python = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      pyright
+    ];
+  };
+  config.specs.sql = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      sqls
+    ];
+  };
+
   config.specs.general = {
     # this would ensure any config included from nix in here will be ran after any provided by the `lze` spec
     # If we provided any from within either spec, anyway

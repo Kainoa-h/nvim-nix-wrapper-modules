@@ -42,7 +42,12 @@
       packages = forAllSystems (
         system:
         let
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs { 
+            inherit system;
+            config.permittedInsecurePackages = [
+              "pnpm-10.34.0"
+            ];
+          };
         in
         {
           neovim = self.wrappers.neovim.wrap { inherit pkgs; };

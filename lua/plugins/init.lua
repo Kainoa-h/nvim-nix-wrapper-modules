@@ -2,15 +2,15 @@ return {
 	{ import = "plugins.colorschemes" },
 	{ import = "plugins.snacks" },
 	{ import = "plugins.lsp" },
-	{
-		"mason.nvim",
-		enabled = not nixInfo.isNix,
-		priority = 100, -- <- run lsp hook before lspconfig's hook
-		on_plugin = { "nvim-lspconfig" },
-		lsp = function(plugin)
-			vim.cmd.MasonInstall(plugin.name)
-		end,
-	},
+	-- {
+	-- 	"mason.nvim",
+	-- 	enabled = not nixInfo.isNix,
+	-- 	priority = 100, -- <- run lsp hook before lspconfig's hook
+	-- 	on_plugin = { "nvim-lspconfig" },
+	-- 	lsp = function(plugin)
+	-- 		vim.cmd.MasonInstall(plugin.name)
+	-- 	end,
+	-- },
 	{
 		-- lazydev makes your lua lsp load only the relevant definitions for a file.
 		-- It also gives us a nice way to correlate globals we create with files.
@@ -77,6 +77,110 @@ return {
 				},
 			},
 		},
+	},
+	{
+		"rust_analyzer",
+		for_cat = "rust",
+		lsp = {
+			filetypes = { "rust" },
+			settings = {
+				["rust-analyzer"] = {
+					checkOnSave = {
+						command = "clippy",
+					},
+				},
+			},
+		},
+	},
+	{
+		"vtsls",
+		for_cat = { "typescript", "javascript" },
+		lsp = {
+			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+			settings = {
+				vtsls = {
+					autoUseWorkspaceTsdk = true,
+				},
+			},
+		},
+	},
+	{
+		"html",
+		for_cat = "html",
+		lsp = {
+			filetypes = { "html" },
+		},
+	},
+	{
+		"cssls",
+		for_cat = "css",
+		lsp = {
+			filetypes = { "css", "scss", "less" },
+		},
+	},
+	{
+		"roslyn_ls",
+		for_cat = "csharp",
+		lsp = {
+			filetypes = { "cs" },
+		},
+	},
+	{
+		"jdtls",
+		for_cat = "java",
+		lsp = {
+			filetypes = { "java" },
+		},
+	},
+	{
+		"angularls",
+		for_cat = "angular",
+		lsp = {
+			filetypes = { "typescript", "html", "typescriptreact", "htmlangular" },
+		},
+	},
+	{
+		"vue_ls",
+		for_cat = "vue",
+		lsp = {
+			filetypes = { "vue" },
+		},
+	},
+	{
+		"pyright",
+		for_cat = "python",
+		lsp = {
+			filetypes = { "python" },
+			settings = {
+				python = {
+					analysis = {
+						typeCheckingMode = "basic",
+					},
+				},
+			},
+		},
+	},
+	{
+		"sqls",
+		for_cat = "sql",
+		lsp = {
+			filetypes = { "sql" },
+		},
+	},
+	{
+		"emmet_ls",
+		for_cat = { "html", "css", "react" },
+		lsp = {
+			filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact" },
+		},
+	},
+	{
+		"crates.nvim",
+		for_cat = "rust",
+		ft = "toml",
+		after = function(_)
+			require("crates").setup()
+		end,
 	},
 	{
 		"nvim-treesitter",
@@ -211,15 +315,23 @@ return {
 
 			conform.setup({
 				formatters_by_ft = {
-					-- NOTE: download some formatters
-					-- and configure them here
 					lua = nixInfo(nil, "settings", "cats", "lua") and { "stylua" } or nil,
-					-- go = { "gofmt", "golint" },
-					-- templ = { "templ" },
-					-- Conform will run multiple formatters sequentially
-					-- python = { "isort", "black" },
-					-- Use a sub-list to run only the first available formatter
-					-- javascript = { { "prettierd", "prettier" } },
+					rust = nixInfo(nil, "settings", "cats", "rust") and { "rustfmt", "taplo" } or nil,
+					typescript = nixInfo(nil, "settings", "cats", "typescript") and { "prettierd" } or nil,
+					javascript = nixInfo(nil, "settings", "cats", "javascript") and { "prettierd" } or nil,
+					typescriptreact = nixInfo(nil, "settings", "cats", "typescript") and { "prettierd" } or nil,
+					javascriptreact = nixInfo(nil, "settings", "cats", "javascript") and { "prettierd" } or nil,
+					html = nixInfo(nil, "settings", "cats", "html") and { "prettierd" } or nil,
+					css = nixInfo(nil, "settings", "cats", "css") and { "prettierd" } or nil,
+					scss = nixInfo(nil, "settings", "cats", "css") and { "prettierd" } or nil,
+					json = { "prettierd" },
+					yaml = { "prettierd" },
+					markdown = { "prettierd" },
+					python = nixInfo(nil, "settings", "cats", "python") and { "ruff_format" } or nil,
+					cs = nixInfo(nil, "settings", "cats", "csharp") and { "csharpier" } or nil,
+					java = nixInfo(nil, "settings", "cats", "java") and { "google-java-format" } or nil,
+					sql = nixInfo(nil, "settings", "cats", "sql") and { "sql-formatter" } or nil,
+					vue = nixInfo(nil, "settings", "cats", "vue") and { "prettierd" } or nil,
 				},
 			})
 
@@ -242,11 +354,16 @@ return {
 		-- colorscheme = "",
 		after = function(plugin)
 			require("lint").linters_by_ft = {
-				-- NOTE: download some linters
-				-- and configure them here
-				-- markdown = {'vale',},
-				-- javascript = { 'eslint' },
-				-- typescript = { 'eslint' },
+				javascript = nixInfo(nil, "settings", "cats", "javascript") and { "eslint_d" } or nil,
+				typescript = nixInfo(nil, "settings", "cats", "typescript") and { "eslint_d" } or nil,
+				javascriptreact = nixInfo(nil, "settings", "cats", "javascript") and { "eslint_d" } or nil,
+				typescriptreact = nixInfo(nil, "settings", "cats", "typescript") and { "eslint_d" } or nil,
+				vue = nixInfo(nil, "settings", "cats", "vue") and { "eslint_d" } or nil,
+				python = nixInfo(nil, "settings", "cats", "python") and { "ruff" } or nil,
+				css = nixInfo(nil, "settings", "cats", "css") and { "stylelint" } or nil,
+				scss = nixInfo(nil, "settings", "cats", "css") and { "stylelint" } or nil,
+				html = nixInfo(nil, "settings", "cats", "html") and { "html-tidy" } or nil,
+				sql = nixInfo(nil, "settings", "cats", "sql") and { "sqlfluff" } or nil,
 			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
