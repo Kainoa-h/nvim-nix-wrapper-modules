@@ -109,11 +109,16 @@ return {
 						{ "progress", separator = " ", padding = { left = 1, right = 0 } },
 						{ "location", padding = { left = 0, right = 1 } },
 					},
-					lualine_z = {
-						function()
-							return " " .. os.date("%R")
-						end,
-					},
+				lualine_z = {
+					function()
+						local wc = vim.fn.wordcount()
+						if wc.visual_words then
+							return tostring(wc.visual_words) .. " words"
+						else
+							return tostring(wc.words) .. " words"
+						end
+					end,
+				},
 				},
 				inactive_sections = {
 					lualine_b = {
