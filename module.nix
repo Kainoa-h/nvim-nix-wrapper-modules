@@ -220,8 +220,6 @@ inputs:
       nvim-surround
       vim-startuptime
       blink-cmp
-      blink-compat
-      cmp-cmdline
       colorful-menu-nvim
       lualine-nvim
       gitsigns-nvim
