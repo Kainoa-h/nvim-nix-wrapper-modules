@@ -242,6 +242,7 @@ inputs:
       nui-nvim
       nvim-notify
       nvim-web-devicons
+      flash-nvim
     ];
   };
 

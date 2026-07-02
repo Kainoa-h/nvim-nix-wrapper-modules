@@ -9,6 +9,7 @@ return {
 	{ import = "plugins.lualine" },
 	{ import = "plugins.noice" },
 	{ import = "plugins.gitsigns" },
+	{ import = "plugins.flash" },
 	{
 		"colorful-menu.nvim",
 		auto_enable = true,
