@@ -44,6 +44,16 @@ return {
 		end,
 	},
 	{
+		"mini.files",
+		auto_enable = true,
+		event = "DeferredUIEnter",
+		-- keys = "",
+		after = function(plugin)
+			require("mini.files").setup({})
+			vim.keymap.set("n", "<leader>fm", "<cmd>lua MiniFiles.open()<CR>", { desc = "Mini Files" })
+		end,
+	},
+	{
 		"which-key.nvim",
 		auto_enable = true,
 		-- cmd = { "" },

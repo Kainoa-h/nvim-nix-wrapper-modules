@@ -243,6 +243,7 @@ inputs:
       nvim-notify
       nvim-web-devicons
       flash-nvim
+      mini-files
     ];
   };
 
