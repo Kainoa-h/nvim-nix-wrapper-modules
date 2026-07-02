@@ -59,4 +59,175 @@ return {
 			})
 		end,
 	},
+	{
+		-- lazydev makes your lua lsp load only the relevant definitions for a file.
+		-- It also gives us a nice way to correlate globals we create with files.
+		"lazydev.nvim",
+		auto_enable = true,
+		cmd = { "LazyDev" },
+		ft = "lua",
+		after = function(_)
+			require("lazydev").setup({
+				library = {
+					{ words = { "nixInfo%.lze" }, path = nixInfo("lze", "plugins", "start", "lze") .. "/lua" },
+					{
+						words = { "nixInfo%.lze" },
+						path = nixInfo("lzextras", "plugins", "start", "lzextras") .. "/lua",
+					},
+				},
+			})
+		end,
+	},
+	{
+		-- name of the lsp
+		"lua_ls",
+		for_cat = "lua",
+		-- provide a table containing filetypes,
+		-- and then whatever your functions defined in the function type specs expect.
+		-- in our case, it just expects the normal lspconfig setup options,
+		-- but with a default on_attach and capabilities
+		lsp = {
+			-- if you provide the filetypes it doesn't ask lspconfig for the filetypes
+			-- (meaning it doesn't call the callback function we defined in the main init.lua)
+			filetypes = { "lua" },
+			settings = {
+				Lua = {
+					signatureHelp = { enabled = true },
+					diagnostics = {
+						globals = { "nixInfo", "vim" },
+						disable = { "missing-fields" },
+					},
+				},
+			},
+		},
+		-- also these are regular specs and you can use before and after and all the other normal fields
+	},
+	{
+		"nixd",
+		enabled = nixInfo.isNix, -- mason doesn't have nixd
+		for_cat = "nix",
+		lsp = {
+			filetypes = { "nix" },
+			settings = {
+				nixd = {
+					nixpkgs = {
+						expr = [[import <nixpkgs> {}]],
+					},
+					options = {},
+					formatting = {
+						command = { "nixfmt" },
+					},
+					diagnostic = {
+						suppress = {
+							"sema-escaping-with",
+						},
+					},
+				},
+			},
+		},
+	},
+	{
+		"rust_analyzer",
+		for_cat = "rust",
+		lsp = {
+			filetypes = { "rust" },
+			settings = {
+				["rust-analyzer"] = {
+					checkOnSave = {
+						command = "clippy",
+					},
+				},
+			},
+		},
+	},
+	{
+		"vtsls",
+		for_cat = { "typescript", "javascript" },
+		lsp = {
+			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+			settings = {
+				vtsls = {
+					autoUseWorkspaceTsdk = true,
+				},
+			},
+		},
+	},
+	{
+		"html",
+		for_cat = "html",
+		lsp = {
+			filetypes = { "html" },
+		},
+	},
+	{
+		"cssls",
+		for_cat = "css",
+		lsp = {
+			filetypes = { "css", "scss", "less" },
+		},
+	},
+	{
+		"roslyn_ls",
+		for_cat = "csharp",
+		lsp = {
+			filetypes = { "cs" },
+		},
+	},
+	{
+		"jdtls",
+		for_cat = "java",
+		lsp = {
+			filetypes = { "java" },
+		},
+	},
+	{
+		"angularls",
+		for_cat = "angular",
+		lsp = {
+			filetypes = { "typescript", "html", "typescriptreact", "htmlangular" },
+		},
+	},
+	{
+		"vue_ls",
+		for_cat = "vue",
+		lsp = {
+			filetypes = { "vue" },
+		},
+	},
+	{
+		"pyright",
+		for_cat = "python",
+		lsp = {
+			filetypes = { "python" },
+			settings = {
+				python = {
+					analysis = {
+						typeCheckingMode = "basic",
+					},
+				},
+			},
+		},
+	},
+	{
+		"sqls",
+		for_cat = "sql",
+		lsp = {
+			filetypes = { "sql" },
+		},
+	},
+	{
+		"emmet_ls",
+		for_cat = { "html", "css", "react" },
+		lsp = {
+			filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact" },
+		},
+	},
+	{
+		"crates.nvim",
+		for_cat = "rust",
+		ft = "toml",
+		after = function(_)
+			require("crates").setup()
+		end,
+	},
 }
