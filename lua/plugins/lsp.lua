@@ -29,9 +29,9 @@ return {
 					end
 
 					nmap("<leader>cr", vim.lsp.buf.rename, "Rename")
-					nmap("<leader>ca", vim.lsp.buf.code_action, "Code A]ction")
+					nmap("<leader>ca", vim.lsp.buf.code_action, "Code Action")
 					nmap("<leader>cgd", vim.lsp.buf.definition, "Goto Definition")
-					nmap("<leader>cd", vim.lsp.buf.type_definition, "Type Definition")
+					nmap("<leader>cd", vim.diagnostic.open_float, "Diagnostic at Cursor")
 					nmap("<leader>cgr", function() Snacks.picker.lsp_references() end, "Goto References")
 					nmap("<leader>cgI", function() Snacks.picker.lsp_implementations() end, "Goto Implementation")
 					nmap("<leader>cs", function() Snacks.picker.lsp_symbols() end, "Document Symbols")
