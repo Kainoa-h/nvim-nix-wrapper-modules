@@ -11,7 +11,7 @@ return {
 		load = function(_name)
 			-- schedule so it runs after VimEnter
 			vim.schedule(function()
-				vim.cmd.colorscheme(nixInfo("moonfly", "settings", "colorscheme"))
+				vim.cmd.colorscheme(nixInfo("vague", "settings", "colorscheme"))
 			end)
 		end,
 	},
@@ -27,5 +27,10 @@ return {
 		"vim-moonfly-colors",
 		auto_enable = true,
 		colorscheme = "moonfly",
+	},
+	{
+		"vague-nvim",
+		auto_enable = true,
+		colorscheme = { "vague" },
 	},
 }

@@ -41,7 +41,7 @@ inputs:
   # You can declare your own options!
   options.settings.colorscheme = lib.mkOption {
     type = lib.types.str;
-    default = "moonfly";
+    default = "vague";
   };
   # config.settings.colorscheme = "moonfly"; # <- just demonstrating that it is an option
   # and grab it in lua with `require(vim.g.nix_info_plugin_name)("onedark_dark", "settings", "colorscheme") == "moonfly"`
@@ -50,6 +50,7 @@ inputs:
     data = with pkgs.vimPlugins; [
         onedarkpro-nvim
         vim-moonfly-colors
+        config.nvim-lib.neovimPlugins.vague-nvim
       ];
   };
   # If you don't want the boilerplate of a whole option in settings, you could just pass stuff

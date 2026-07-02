@@ -13,6 +13,10 @@
     url = "github:BirdeeHub/lzextras";
     flake = false;
   };
+  inputs.plugins-vague-nvim = {
+    url = "github:vague-theme/vague.nvim";
+    flake = false;
+  };
   outputs =
     {
       self,
