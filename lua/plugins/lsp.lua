@@ -11,8 +11,14 @@ return {
 		end,
 		-- set up our on_attach function once before the spec loads
 		before = function(_)
-			vim.lsp.config("*", {
-				on_attach = function(_, bufnr)
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if not client then return end
+
+					local bufnr = args.buf
+
 					-- we create a function that lets us more easily define mappings specific
 					-- for LSP related items. It sets the mode, buffer and description for us each time.
 					local nmap = function(keys, func, desc)
