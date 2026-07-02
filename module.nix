@@ -237,6 +237,9 @@ inputs:
       #     lua
       #   ]
       # ))
+      noice-nvim
+      nui-nvim
+      nvim-notify
     ];
   };
 

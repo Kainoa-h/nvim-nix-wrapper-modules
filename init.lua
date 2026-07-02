@@ -93,7 +93,7 @@ nixInfo.lze.h.lsp.set_ft_fallback(function(name)
 	end
 end)
 
-vim.opt.shortmess:append('W')
+-- vim.opt.shortmess:append("W")
 
 -- NOTE: These 2 should be set up before any plugins with keybinds are loaded.
 vim.g.mapleader = " "
@@ -158,6 +158,7 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menu,preview,noselect"
 
+vim.o.cmdheight = 0 -- Collapses the 1-line command bar gap entirely
 vim.o.termguicolors = true
 
 -- [[ Disable auto comment on enter ]]

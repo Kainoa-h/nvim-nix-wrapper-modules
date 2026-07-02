@@ -7,6 +7,7 @@ return {
 	{ import = "plugins.lint" },
 	{ import = "plugins.blink" },
 	{ import = "plugins.lualine" },
+	{ import = "plugins.noice" },
 	{
 		"colorful-menu.nvim",
 		auto_enable = true,
