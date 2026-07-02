@@ -47,6 +47,27 @@ return {
 						return "<Ignore>"
 					end, { expr = true, desc = "Jump to previous hunk" })
 
+					-- Alternative navigation with (( and ))
+					map({ "n", "v" }, "))", function()
+						if vim.wo.diff then
+							return "]c"
+						end
+						vim.schedule(function()
+							gs.next_hunk()
+						end)
+						return "<Ignore>"
+					end, { expr = true, desc = "Jump to next hunk" })
+
+					map({ "n", "v" }, "((", function()
+						if vim.wo.diff then
+							return "[c"
+						end
+						vim.schedule(function()
+							gs.prev_hunk()
+						end)
+						return "<Ignore>"
+					end, { expr = true, desc = "Jump to previous hunk" })
+
 					-- Actions
 					-- visual mode
 					map("v", "<leader>hs", function()
