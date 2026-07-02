@@ -41,22 +41,16 @@ inputs:
   # You can declare your own options!
   options.settings.colorscheme = lib.mkOption {
     type = lib.types.str;
-    default = "onedark_dark";
+    default = "moonfly";
   };
-  config.settings.colorscheme = "moonfly"; # <- just demonstrating that it is an option
+  # config.settings.colorscheme = "moonfly"; # <- just demonstrating that it is an option
   # and grab it in lua with `require(vim.g.nix_info_plugin_name)("onedark_dark", "settings", "colorscheme") == "moonfly"`
   config.specs.colorscheme = {
     lazy = true;
-    data = builtins.getAttr config.settings.colorscheme (
-      with pkgs.vimPlugins;
-      {
-        "onedark_dark" = onedarkpro-nvim;
-        "onedark_vivid" = onedarkpro-nvim;
-        "onedark" = onedarkpro-nvim;
-        "onelight" = onedarkpro-nvim;
-        "moonfly" = vim-moonfly-colors;
-      }
-    );
+    data = with pkgs.vimPlugins; [
+        onedarkpro-nvim
+        vim-moonfly-colors
+      ];
   };
   # If you don't want the boilerplate of a whole option in settings, you could just pass stuff
   config.info.testvalue = {
