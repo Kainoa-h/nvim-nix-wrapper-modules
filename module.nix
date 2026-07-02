@@ -240,6 +240,7 @@ inputs:
       noice-nvim
       nui-nvim
       nvim-notify
+      nvim-web-devicons
     ];
   };
 
