@@ -67,6 +67,17 @@ return {
 					},
 				},
 			})
+			vim.diagnostic.config({
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = " ",
+						[vim.diagnostic.severity.WARN] = " ",
+						[vim.diagnostic.severity.INFO] = " ",
+						[vim.diagnostic.severity.HINT] = " ",
+					},
+				},
+			})
+
 			-- Handle the backend of those remote commands.
 			-- hopefully this can be removed one day
 			nixInfo.lazygit_fix = function(path, line)
@@ -113,7 +124,7 @@ return {
 				Snacks.picker.buffers()
 			end, { desc = "Search Buffers" })
 			-- find
-			vim.keymap.set("n", "<leader>ff", function()
+			vim.keymap.set("n", "<leader><leader>", function()
 				Snacks.picker.files()
 			end, { desc = "Find Files" })
 			vim.keymap.set("n", "<leader>fg", function()
