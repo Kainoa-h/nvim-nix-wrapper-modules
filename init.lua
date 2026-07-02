@@ -243,6 +243,10 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = "Paste over selection without erasing unnamed register" }
 )
 
+-- Keep visual selection after indenting
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+
 -- NOTE: You will likely want to break this up into more files.
 -- You can call this more than once.
 -- You can also include other files from within the specs via an `import` spec.
