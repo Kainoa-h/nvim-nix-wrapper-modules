@@ -34,13 +34,13 @@ return {
 				},
 			})
 
-			vim.keymap.set({ "n", "v" }, "<leader>FF", function()
+			vim.keymap.set({ "n", "v" }, "<leader>cf", function()
 				conform.format({
 					lsp_fallback = true,
 					async = false,
 					timeout_ms = 1000,
 				})
-			end, { desc = "[F]ormat [F]ile" })
+			end, { desc = "Format File" })
 		end,
 	},
 }
