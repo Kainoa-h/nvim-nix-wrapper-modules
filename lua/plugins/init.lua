@@ -1,3 +1,12 @@
+vim.g.firenvim_config = {
+	localSettings = {
+			['.*'] = {
+					takeover = "never",
+					selector = "",
+			}
+	}
+}
+
 local specs = {
 	{ import = "plugins.colorschemes" },
 	{ import = "plugins.flash" },
