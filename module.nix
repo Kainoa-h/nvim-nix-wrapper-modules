@@ -245,6 +245,7 @@ inputs:
       flash-nvim
       mini-files
       bufferline-nvim
+      firenvim
     ];
   };
 

@@ -11,6 +11,7 @@ return {
 	{ import = "plugins.gitsigns" },
 	{ import = "plugins.flash" },
 	{ import = "plugins.bufferline" },
+	{ import = "plugins.firenvim" },
 	{
 		"colorful-menu.nvim",
 		auto_enable = true,
