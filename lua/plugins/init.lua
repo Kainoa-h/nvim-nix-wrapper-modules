@@ -33,6 +33,7 @@ if not vim.g.started_by_firenvim then
 		{ import = "plugins.noice" },
 		{ import = "plugins.gitsigns" },
 		{ import = "plugins.bufferline" },
+		{ import = "plugins.no-neck-pain" },
 		{
 			"colorful-menu.nvim",
 			auto_enable = true,

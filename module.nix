@@ -246,6 +246,7 @@ inputs:
       mini-files
       bufferline-nvim
       firenvim
+      no-neck-pain-nvim
     ];
   };
 
