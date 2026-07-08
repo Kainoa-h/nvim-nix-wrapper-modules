@@ -199,6 +199,7 @@ vim.keymap.set("n", "H", "<cmd>bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "L", "<cmd>bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>l", "<cmd>b#<CR>", { desc = "Last buffer" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "delete buffer" })
+vim.keymap.set("n", "<leader>br", "<cmd>e<CR>", { desc = "Read buffer" })
 vim.keymap.set("n", "<leader>bo", ":<C-u>%bd|e#|bd#<CR>", { desc = "Close all buffers except current" })
 
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
