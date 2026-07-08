@@ -17,6 +17,9 @@ local specs = {
 		event = "DeferredUIEnter",
 		after = function(plugin)
 			require("nvim-surround").setup()
+			vim.keymap.set("x", "gsa", "<Plug>(nvim-surround-visual)", { desc = "Add Surround" })
+			vim.keymap.set("n", "gsa", "<Plug>(nvim-surround-normal)", { desc = "Add Surround Motion" })
+			vim.keymap.set("n", "gsd", "<Plug>(nvim-surround-delete)", { desc = "Delete Surround" })
 		end,
 	},
 }
