@@ -197,7 +197,7 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous Search Result" })
 
 vim.keymap.set("n", "H", "<cmd>bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "L", "<cmd>bnext<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "<leader><leader>l", "<cmd>b#<CR>", { desc = "Last buffer" })
+vim.keymap.set("n", "<leader>l", "<cmd>b#<CR>", { desc = "Last buffer" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "delete buffer" })
 vim.keymap.set("n", "<leader>bo", ":<C-u>%bd|e#|bd#<CR>", { desc = "Close all buffers except current" })
 
