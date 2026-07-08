@@ -92,7 +92,7 @@ if not vim.g.started_by_firenvim then
 					{ "<leader>r", group = "[r]ename" },
 					{ "<leader>r_", hidden = true },
 					{ "<leader>s", group = "[s]earch" },
-					{ "<leader>s_", hidden = true },
+					{ "<leader>sn", group = "noice" },
 					{ "<leader>t", group = "[t]oggles" },
 					{ "<leader>t_", hidden = true },
 					{ "<leader>w", group = "[w]orkspace" },

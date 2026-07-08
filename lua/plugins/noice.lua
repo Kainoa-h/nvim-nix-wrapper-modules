@@ -9,6 +9,12 @@ return {
 		after = function(_)
 			require("notify").setup({ stages = "fade", timeout = 2000 })
 			vim.notify = require("notify")
+
+      vim.keymap.set("n", "<leader>snl", function() require("noice").cmd("last") end, { desc = "Noice Last Message" })
+      vim.keymap.set("n", "<leader>snh", function() require("noice").cmd("history") end, { desc = "Noice History" })
+      vim.keymap.set("n", "<leader>sna", function() require("noice").cmd("all") end, { desc = "Noice All" })
+      vim.keymap.set("n", "<leader>snd", function() require("noice").cmd("dismiss") end, { desc = "Dismiss All" })
+
 		end,
 	},
 	{
