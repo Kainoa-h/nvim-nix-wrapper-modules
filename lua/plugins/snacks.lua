@@ -116,6 +116,7 @@ return {
 					end)
 				end
 			end
+
 			-- NOTE: we aren't loading this lazily, and the keybinds already are so it is fine to just set these here
 			vim.keymap.set("n", "<leader>e", function()
 				Snacks.explorer.open()
@@ -129,9 +130,6 @@ return {
 			vim.keymap.set("n", "<leader>sf", function()
 				Snacks.picker.smart()
 			end, { desc = "Smart Find Files" })
-			vim.keymap.set("n", "<leader><leader>s", function()
-				Snacks.picker.buffers()
-			end, { desc = "Search Buffers" })
 			-- find
 			vim.keymap.set("n", "<leader><leader>", function()
 				Snacks.picker.files()
@@ -183,9 +181,9 @@ return {
 			vim.keymap.set("n", "<leader>sq", function()
 				Snacks.picker.qflist()
 			end, { desc = "Quickfix List" })
-			vim.keymap.set("n", "<leader>sR", function()
-				Snacks.picker.resume()
-			end, { desc = "Resume" })
+			vim.keymap.set("n", "<leader>ss", function()
+				Snacks.picker.lsp_symbols()
+			end, { desc = "Lsp Symbols" })
 			vim.keymap.set("n", "<leader>su", function()
 				Snacks.picker.undo()
 			end, { desc = "Undo History" })
