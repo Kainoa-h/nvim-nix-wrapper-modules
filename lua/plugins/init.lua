@@ -72,7 +72,9 @@ if not vim.g.started_by_firenvim then
 			auto_enable = true,
 			event = "DeferredUIEnter",
 			after = function(plugin)
-				require("which-key").setup({})
+				require("which-key").setup({
+					preset = "helix",
+				})
 				require("which-key").add({
 					{ "<leader><leader>", group = "buffer commands" },
 					{ "<leader><leader>_", hidden = true },
