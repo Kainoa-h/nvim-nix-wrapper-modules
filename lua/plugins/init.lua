@@ -64,6 +64,7 @@ if not vim.g.started_by_firenvim then
 			after = function(plugin)
 				require("mini.files").setup({})
 				vim.keymap.set("n", "<leader>fm", "<cmd>lua MiniFiles.open()<CR>", { desc = "Mini Files" })
+				vim.keymap.set("n", "<leader>fd", "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", { desc = "Mini Files in dir" })
 			end,
 		},
 		{
