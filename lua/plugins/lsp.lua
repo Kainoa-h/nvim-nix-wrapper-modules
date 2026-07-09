@@ -215,6 +215,13 @@ return {
 		},
 	},
 	{
+		"marksman",
+		for_cat = "markdown",
+		lsp = {
+			filetypes = { "markdown" },
+		},
+	},
+	{
 		"emmet_ls",
 		for_cat = { "html", "css", "react" },
 		lsp = {

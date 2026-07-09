@@ -193,6 +193,13 @@ inputs:
       sqls
     ];
   };
+  config.specs.markdown = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      marksman
+    ];
+  };
+ 
 
   config.specs.general = {
     # this would ensure any config included from nix in here will be ran after any provided by the `lze` spec
