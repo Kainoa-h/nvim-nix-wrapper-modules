@@ -244,9 +244,11 @@ inputs:
       nvim-web-devicons
       flash-nvim
       mini-files
+      mini-icons
       bufferline-nvim
       firenvim
       no-neck-pain-nvim
+      render-markdown-nvim
     ];
   };
 

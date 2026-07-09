@@ -37,6 +37,7 @@ if not vim.g.started_by_firenvim then
 		{ import = "plugins.gitsigns" },
 		{ import = "plugins.bufferline" },
 		{ import = "plugins.no-neck-pain" },
+		{ import = "plugins.render-markdown" },
 		{
 			"colorful-menu.nvim",
 			auto_enable = true,
