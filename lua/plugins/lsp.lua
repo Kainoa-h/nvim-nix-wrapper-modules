@@ -11,6 +11,8 @@ return {
 		end,
 		-- set up our on_attach function once before the spec loads
 		before = function(_)
+			local document_highlight_group = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = true })
+
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
 				callback = function(args)
@@ -18,6 +20,24 @@ return {
 					if not client then return end
 
 					local bufnr = args.buf
+
+					if client:supports_method("textDocument/documentHighlight")
+						and not vim.b[bufnr].lsp_document_highlight_enabled
+					then
+						vim.b[bufnr].lsp_document_highlight_enabled = true
+
+						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+							buffer = bufnr,
+							group = document_highlight_group,
+							callback = vim.lsp.buf.document_highlight,
+						})
+
+						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+							buffer = bufnr,
+							group = document_highlight_group,
+							callback = vim.lsp.buf.clear_references,
+						})
+					end
 
 					-- we create a function that lets us more easily define mappings specific
 					-- for LSP related items. It sets the mode, buffer and description for us each time.
