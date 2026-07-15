@@ -96,8 +96,6 @@ if not vim.g.started_by_firenvim then
 					{ "<leader>sn", group = "noice" },
 					{ "<leader>t", group = "[t]oggles" },
 					{ "<leader>t_", hidden = true },
-					{ "<leader>w", group = "[w]orkspace" },
-					{ "<leader>w_", hidden = true },
 				})
 			end,
 		},

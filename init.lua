@@ -211,6 +211,9 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Save buffer
+vim.keymap.set('n', '<leader>w', '<cmd>write<cr>', { desc = 'Write Buffer' })
+
 -- Diagnostic keymaps
 -- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 -- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
