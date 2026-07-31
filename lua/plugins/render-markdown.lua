@@ -11,8 +11,16 @@ return {
 		after = function(plugin)
 			local md = require("render-markdown")
 			md.setup({})
-			vim.keymap.set("n", "<leader>um",function() md.toggle() end, { desc = "Toggle Markdown" })
-			vim.keymap.set("n", "<leader>up",function() md.preview() end, { desc = "Preview Markdown" })
+			Snacks.toggle
+				.new({
+					name = "Toggle Markdown",
+					get = md.get,
+					set = md.set,
+				})
+				:map("<leader>um")
+			vim.keymap.set("n", "<leader>up", function()
+				md.preview()
+			end, { desc = "Preview Markdown" })
 		end,
 	},
 }
