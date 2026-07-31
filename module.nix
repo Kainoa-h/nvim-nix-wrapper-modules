@@ -207,6 +207,7 @@ inputs:
     after = [ "lze" ];
     # note we didn't have to specify the `lze` specs name, because it was a top level spec
     runtimePkgs = with pkgs; [
+      git
       lazygit
       tree-sitter
       fd
