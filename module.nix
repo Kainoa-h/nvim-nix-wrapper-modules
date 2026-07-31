@@ -256,6 +256,7 @@ inputs:
       firenvim
       no-neck-pain-nvim
       render-markdown-nvim
+      nvim_context_vt
     ];
   };
 
