@@ -17,7 +17,7 @@ return {
 						files = {
 							layout = {
 								preset = "telescope",
-							}
+							},
 						},
 						explorer = {
 							auto_close = true,
@@ -187,7 +187,19 @@ return {
 			vim.keymap.set("n", "<leader>su", function()
 				Snacks.picker.undo()
 			end, { desc = "Undo History" })
-			Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2, name = "Conceal Level" }):map("<leader>uc")
+			Snacks.toggle
+				.option(
+					"conceallevel",
+					{ off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2, name = "Conceal Level" }
+				)
+				:map("<leader>uc")
+
+			Snacks.toggle
+				.option(
+					"wrap",
+					{name = "Word Wrap" }
+				)
+				:map("<leader>uw")
 		end,
 	},
 }
