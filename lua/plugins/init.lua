@@ -41,6 +41,17 @@ if not vim.g.started_by_firenvim then
 		{ import = "plugins.context_vt" },
 		{ import = "plugins.venv-selector" },
 		{
+			"todo-comments.nvim",
+			auto_enable = true,
+			event = "DeferredUIEnter",
+			after = function(_)
+				require("todo-comments").setup({})
+				vim.keymap.set("n", "<leader>st", function()
+					require("snacks").picker.todo_comments()
+				end, { desc = "Todo" })
+			end,
+		},
+		{
 			"colorful-menu.nvim",
 			auto_enable = true,
 			on_plugin = { "blink.cmp" },

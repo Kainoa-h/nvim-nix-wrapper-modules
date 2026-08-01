@@ -211,6 +211,7 @@ inputs:
       lazygit
       tree-sitter
       fd
+      ripgrep
     ];
     # this `lazy = true` definition will transfer to specs in the contained DAL, if there is one.
     # This is because the definition of lazy in `config.specMods` checks `parentSpec.lazy or false`
@@ -260,6 +261,7 @@ inputs:
       render-markdown-nvim
       nvim_context_vt
       venv-selector-nvim
+      todo-comments-nvim
     ];
   };
 
