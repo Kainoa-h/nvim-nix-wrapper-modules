@@ -6,21 +6,27 @@ return {
 	{
 		"render-markdown.nvim",
 		auto_enable = true,
-		event = "FileType",
 		ft = { "markdown" },
+		keys = {
+			{
+				"<leader>up",
+				function()
+					require("render-markdown").preview()
+				end,
+				ft = "markdown",
+				desc = "Preview Markdown",
+			},
+			{
+				"<leader>um",
+				function()
+					require("render-markdown").toggle()
+				end,
+				ft = "markdown",
+				desc = "Toggle Markdown",
+			}
+		},
 		after = function(plugin)
-			local md = require("render-markdown")
-			md.setup({})
-			Snacks.toggle
-				.new({
-					name = "Toggle Markdown",
-					get = md.get,
-					set = md.set,
-				})
-				:map("<leader>um")
-			vim.keymap.set("n", "<leader>up", function()
-				md.preview()
-			end, { desc = "Preview Markdown" })
+			require("render-markdown").setup({})
 		end,
 	},
 }
