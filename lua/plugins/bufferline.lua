@@ -57,7 +57,7 @@ return {
 					show_tab_indicators = true,
 					show_duplicate_prefix = true,
 					duplicates_across_groups = true,
-					persist_buffer_sort = true,
+					persist_buffer_sort = false,
 					move_wraps_at_ends = false,
 					separator_style = "slant",
 					enforce_regular_tabs = false,
@@ -68,7 +68,7 @@ return {
 						delay = 200,
 						reveal = { "close" },
 					},
-					sort_by = "insert_after_current",
+					sort_by = "insert_at_end",
 					pick = {
 						alphabet = "abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMOPQRSTUVWXYZ1234567890",
 					},
