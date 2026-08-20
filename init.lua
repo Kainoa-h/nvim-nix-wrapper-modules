@@ -155,9 +155,6 @@ vim.wo.relativenumber = true
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menu,preview,noselect"
-
 vim.o.cmdheight = 0 -- Collapses the 1-line command bar gap entirely
 vim.o.termguicolors = true
 

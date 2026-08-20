@@ -8,11 +8,17 @@ return {
 				-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
 				-- See :h blink-cmp-config-keymap for configuring keymaps
 				keymap = {
-					preset = "default",
+					preset = "enter",
 				},
 				cmdline = {
 					enabled = true,
 					completion = {
+						list = {
+							selection = {
+								preselect = false,
+								auto_insert = false,
+							},
+						},
 						menu = {
 							auto_show = true,
 						},
