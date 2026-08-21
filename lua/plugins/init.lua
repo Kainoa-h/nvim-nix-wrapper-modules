@@ -42,6 +42,24 @@ if not vim.g.started_by_firenvim then
 		{ import = "plugins.venv-selector" },
 		{ import = "plugins.codecompanion" },
 		{
+			"yanky.nvim",
+			auto_enable = true,
+			event = "DeferredUIEnter",
+			keys = {
+				{
+					"<leader>P",
+					function()
+						Snacks.picker.yanky()
+					end,
+					mode = { "n", "x" },
+					desc = "Yank History"
+				},
+			},
+			after = function(_)
+				require("yanky").setup({})
+			end,
+		},
+		{
 			"todo-comments.nvim",
 			auto_enable = true,
 			event = "DeferredUIEnter",

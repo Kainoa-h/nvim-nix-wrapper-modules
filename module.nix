@@ -263,6 +263,7 @@ inputs:
       venv-selector-nvim
       todo-comments-nvim
       codecompanion-nvim
+      yanky-nvim
     ];
   };
 
