@@ -187,6 +187,9 @@ return {
 			vim.keymap.set("n", "<leader>su", function()
 				Snacks.picker.undo()
 			end, { desc = "Undo History" })
+			vim.keymap.set("n", "<leader>r", function()
+				Snacks.picker.registers()
+			end, { desc = "Pick Registers" })
 			Snacks.toggle
 				.option(
 					"conceallevel",
