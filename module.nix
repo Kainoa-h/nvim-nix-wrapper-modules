@@ -262,6 +262,7 @@ inputs:
       nvim_context_vt
       venv-selector-nvim
       todo-comments-nvim
+      codecompanion-nvim
     ];
   };
 

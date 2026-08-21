@@ -40,6 +40,7 @@ if not vim.g.started_by_firenvim then
 		{ import = "plugins.render-markdown" },
 		{ import = "plugins.context_vt" },
 		{ import = "plugins.venv-selector" },
+		{ import = "plugins.codecompanion" },
 		{
 			"todo-comments.nvim",
 			auto_enable = true,

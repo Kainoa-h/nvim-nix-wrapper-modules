@@ -6,7 +6,7 @@ return {
 	{
 		"render-markdown.nvim",
 		auto_enable = true,
-		ft = { "markdown" },
+		ft = { "markdown", "codecompanion" },
 		keys = {
 			{
 				"<leader>up",
@@ -21,12 +21,14 @@ return {
 				function()
 					require("render-markdown").toggle()
 				end,
-				ft = "markdown",
+				ft = { "markdown", "codecompanion" },
 				desc = "Toggle Markdown",
 			}
 		},
 		after = function(plugin)
-			require("render-markdown").setup({})
+			require("render-markdown").setup({
+				file_types = { "markdown", "codecompanion" },
+			})
 		end,
 	},
 }
