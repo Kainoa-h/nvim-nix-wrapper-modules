@@ -1,3 +1,6 @@
+> [!NOTE]
+> ts got merged into my main [nix config](https://github.com/Kainoa-h/nix#readme)
+
 # nvim-nix-wrapper-modules
 
 Neovim derivation built on top of [nix-wrapper-modules](https://github.com/BirdeeHub/nix-wrapper-modules).
